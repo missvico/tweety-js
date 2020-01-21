@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/missvico/tweety-js#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "chalk": "^3.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
   }
 }
