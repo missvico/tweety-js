@@ -3,8 +3,8 @@ const _ = require('lodash');
 const data = [];
 
 function add (name, content) {
-    data.push({ name: name, content: content });
-  }
+    data.push({ name: name, content: content, id:data.length });
+}
   function list () {
     return _.cloneDeep(data);
   }
@@ -29,5 +29,5 @@ function add (name, content) {
   for (let i = 0; i < 10; i++) {
     module.exports.add( getFakeName(), getFakeTweet() );
   }
-
+  
   console.log(data)

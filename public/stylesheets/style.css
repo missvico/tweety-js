@@ -23,7 +23,7 @@ body {
 
 .tweet{
     margin-bottom: 1%;
-    color:  lightskyblue
+    color: lightskyblue;
 }
 
 .tweetTitle{
@@ -32,7 +32,15 @@ body {
 
 .userPic {
     max-width: 100%;
+    border-radius: 50%;    
+
 }
+
+#userName {
+    font-weight: 700;
+}
+
+
 
 
 /* Custom page CSS
