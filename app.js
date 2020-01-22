@@ -4,6 +4,7 @@ const nunjucks = require("nunjucks")
 const chalk = require('chalk');
 const app = express(); 
 const port = 8080
+const routes = require("./routes")
 
 app.listen(port, () => console.log(`Listening on port ${port}!`))
 
@@ -30,25 +31,26 @@ app.use("/special", function(req, res){
     res.send("llegaste a una area especial")
 })
 
-var locals = {
-    title: 'An Example',
-    people: [
-        { name: 'Harry'},
-        { name: 'Ron' },
-        { name: 'Hermione'},
-        { name: 'Hagrid'}
-    ]
-};
-
-  
 app.set('view engine', 'html'); // hace que res.render funcione con archivos html
 app.engine('html', nunjucks.render); // cuando le den archivos html a res.render, va a usar nunjucks
 
 nunjucks.configure('views', {noCache: true});
 
-app.get('/', function(req, res) {
-    res.render('index.html', locals);
-});
+app.use(express.static("public"))
+
+// var locals = {
+//     title: 'An Example',
+//     people: [
+//         { name: 'Harry'},
+//         { name: 'Ron' },
+//         { name: 'Hermione'},
+//         { name: 'Hagrid'}
+//     ]
+// };
+
+// app.get('/', function(req, res) {
+//     res.render('index.html', locals);
+// });
 
 // nunjucks.render('index.html', locals, function (err, output) {
 //     console.log(output);
@@ -56,3 +58,4 @@ app.get('/', function(req, res) {
   
 
 
+app.use("/", routes)
